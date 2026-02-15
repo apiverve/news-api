@@ -12,7 +12,6 @@ namespace APIVerve.API.WorldNews
     {
         /// <summary>
         /// The news category for which you want to get the news. Allowed values: business, entertainment, world, health, science, sports, technology
-        /// Example: technology
         /// </summary>
         [JsonProperty("category")]
         public string Category { get; set; }
