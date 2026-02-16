@@ -700,8 +700,9 @@ from apiverve_worldnews.apiClient import NewsAPIClient
 
 api = NewsAPIClient("[YOUR_API_KEY]")
 
+query = { "category": "technology" }
+
 try:
-    query = { "category": "technology" }
     result = api.execute(query)
     print(result)
 finally:
