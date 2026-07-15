@@ -4,28 +4,40 @@ declare module '@apiverve/news' {
     secure?: boolean;
   }
 
+  /**
+   * Describes fields the current plan does not unlock. Locked fields arrive as null
+   * in `data`; `locked_fields` names them, using dot paths for nested fields.
+   * Absent when the plan unlocks everything.
+   */
+  export interface PremiumInfo {
+    message: string;
+    upgrade_url: string;
+    locked_fields: string[];
+  }
+
   export interface newsResponse {
     status: string;
     error: string | null;
     data: WorldNewsData;
     code?: number;
+    premium?: PremiumInfo;
   }
 
 
   interface WorldNewsData {
-      date:         Date;
-      category:     Category;
-      articleCount: number;
+      date:         Date | null;
+      category:     Category | null;
+      articleCount: number | null;
       articles:     Article[];
   }
   
   interface Article {
-      category:    Category;
-      website:     Website;
-      title:       string;
-      pubDate:     string;
-      description: string;
-      link:        string;
+      category:    Category | null;
+      website:     Website | null;
+      title:       null | string;
+      pubDate:     null | string;
+      description: null | string;
+      link:        null | string;
   }
   
   enum Category {
