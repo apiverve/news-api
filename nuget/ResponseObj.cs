@@ -25,18 +25,21 @@ namespace APIVerve.API.WorldNews
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
     {
         [JsonProperty("date")]
-        public DateTimeOffset Date { get; set; }
+        public DateTimeOffset? Date { get; set; }
 
         [JsonProperty("category")]
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
         [JsonProperty("articleCount")]
-        public long ArticleCount { get; set; }
+        public long? ArticleCount { get; set; }
 
         [JsonProperty("articles")]
         public Article[] Articles { get; set; }
@@ -45,10 +48,10 @@ namespace APIVerve.API.WorldNews
     public partial class Article
     {
         [JsonProperty("category")]
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
         [JsonProperty("website")]
-        public Website Website { get; set; }
+        public Website? Website { get; set; }
 
         [JsonProperty("title")]
         public string Title { get; set; }
@@ -61,6 +64,18 @@ namespace APIVerve.API.WorldNews
 
         [JsonProperty("link")]
         public Uri Link { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 
     public enum Category { Technology };
