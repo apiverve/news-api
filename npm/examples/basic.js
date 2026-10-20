@@ -15,7 +15,14 @@ const api = new newsAPI({
 
 // Example query
 var query = {
-  category: "technology"
+  category: "technology",
+  country: "JP",
+  edition: "GB",
+  language: "es",
+  sort: "top",
+  q: "chips",
+  since: "2026-10-01",
+  limit: 10
 };
 
 // Make the API request using callback

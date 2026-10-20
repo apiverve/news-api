@@ -30,7 +30,7 @@ class newsWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/news';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"category":{"type":"string","required":true}};
+        this.validationRules = {"category":{"type":"string","required":false},"country":{"type":"string","required":false,"maxLength":60},"edition":{"type":"string","required":false},"language":{"type":"string","required":false},"sort":{"type":"string","required":false,"default":"top"},"q":{"type":"string","required":false,"maxLength":100},"since":{"type":"string","required":false,"maxLength":30,"format":"date"},"limit":{"type":"integer","required":false,"min":1}};
     }
 
     /**

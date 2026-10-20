@@ -1,7 +1,7 @@
 {
   "name": "@apiverve/news",
-  "version": "1.2.0",
-  "description": "News API is a simple tool for scraping news data. It returns the news title, description, and more.",
+  "version": "1.2.2",
+  "description": "World News is a global news API that reads about 275 outlet feeds in 29 editions and 6 languages and merges them into stories: one entry per story however many outlets carry it, ranked by that coverage. Filter by 13 topics, by the country a story is about, by the edition it ran in, or by language.",
   "main": "index.js",
   "types": "index.d.ts",
   "sideEffects": false,
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "news", "news data", "news scraper", "news api", "news data scraper"
+    "world news api", "global news api", "international news api", "top headlines api", "news by country api"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/news-api/issues"
   },
-  "homepage": "https://apiverve.com/marketplace/news?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/news?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",

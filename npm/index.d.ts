@@ -26,31 +26,40 @@ declare module '@apiverve/news' {
 
   interface WorldNewsData {
       date:         Date | null;
-      category:     Category | null;
+      category:     null | string;
+      edition:      null;
+      languages:    (null | string)[];
+      country:      null;
+      sort:         null | string;
+      lastUpdated:  Date | null;
       articleCount: number | null;
       articles:     Article[];
   }
   
   interface Article {
-      category:    Category | null;
-      website:     Website | null;
-      title:       null | string;
-      pubDate:     null | string;
-      description: null | string;
-      link:        null | string;
+      category:       null | string;
+      website:        null | string;
+      title:          null | string;
+      pubDate:        Date | null;
+      image:          null | string;
+      description:    null | string;
+      link:           null | string;
+      id:             null | string;
+      categories:     (null | string)[];
+      countries:      (null | string)[];
+      edition:        null | string;
+      language:       null | string;
+      coverage:       number | null;
+      sources:        Source[];
+      sentiment:      null | string;
+      sentimentScore: number | null;
   }
   
-  enum Category {
-      Technology = "technology",
-  }
-  
-  enum Website {
-      LatestFromTechRadarUSInComputingNews = " Latest from TechRadar US in Computing News ",
-      LatestNews = "Latest news",
-      NYTTechnology = "NYT > Technology",
-      TheHackerNews = "The Hacker News",
-      TheVerge = "The Verge",
-      Wired = "WIRED",
+  interface Source {
+      website: null | string;
+      title:   null | string;
+      link:    null | string;
+      pubDate: Date | null;
   }
 
   export default class newsWrapper {
