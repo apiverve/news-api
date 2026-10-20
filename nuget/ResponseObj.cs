@@ -36,7 +36,22 @@ namespace APIVerve.API.WorldNews
         public DateTimeOffset? Date { get; set; }
 
         [JsonProperty("category")]
-        public Category? Category { get; set; }
+        public string Category { get; set; }
+
+        [JsonProperty("edition")]
+        public object Edition { get; set; }
+
+        [JsonProperty("languages")]
+        public string[] Languages { get; set; }
+
+        [JsonProperty("country")]
+        public object Country { get; set; }
+
+        [JsonProperty("sort")]
+        public string Sort { get; set; }
+
+        [JsonProperty("lastUpdated")]
+        public DateTimeOffset? LastUpdated { get; set; }
 
         [JsonProperty("articleCount")]
         public long? ArticleCount { get; set; }
@@ -48,22 +63,67 @@ namespace APIVerve.API.WorldNews
     public partial class Article
     {
         [JsonProperty("category")]
-        public Category? Category { get; set; }
+        public string Category { get; set; }
 
         [JsonProperty("website")]
-        public Website? Website { get; set; }
+        public string Website { get; set; }
 
         [JsonProperty("title")]
         public string Title { get; set; }
 
         [JsonProperty("pubDate")]
-        public string PubDate { get; set; }
+        public DateTimeOffset? PubDate { get; set; }
+
+        [JsonProperty("image")]
+        public Uri Image { get; set; }
 
         [JsonProperty("description")]
         public string Description { get; set; }
 
         [JsonProperty("link")]
         public Uri Link { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("categories")]
+        public string[] Categories { get; set; }
+
+        [JsonProperty("countries")]
+        public string[] Countries { get; set; }
+
+        [JsonProperty("edition")]
+        public string Edition { get; set; }
+
+        [JsonProperty("language")]
+        public string Language { get; set; }
+
+        [JsonProperty("coverage")]
+        public long? Coverage { get; set; }
+
+        [JsonProperty("sources")]
+        public Source[] Sources { get; set; }
+
+        [JsonProperty("sentiment")]
+        public string Sentiment { get; set; }
+
+        [JsonProperty("sentimentScore")]
+        public long? SentimentScore { get; set; }
+    }
+
+    public partial class Source
+    {
+        [JsonProperty("website")]
+        public string Website { get; set; }
+
+        [JsonProperty("title")]
+        public string Title { get; set; }
+
+        [JsonProperty("link")]
+        public Uri Link { get; set; }
+
+        [JsonProperty("pubDate")]
+        public DateTimeOffset? PubDate { get; set; }
     }
 
     public partial class Premium
@@ -77,8 +137,4 @@ namespace APIVerve.API.WorldNews
         [JsonProperty("locked_fields")]
         public string[] LockedFields { get; set; }
     }
-
-    public enum Category { Technology };
-
-    public enum Website { LatestFromTechRadarUsInComputingNews, LatestNews, NytTechnology, TheHackerNews, TheVerge, Wired };
 }

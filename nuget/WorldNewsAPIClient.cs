@@ -67,7 +67,14 @@ namespace APIVerve.API.WorldNews
         /// <summary>Validation rules for parameters</summary>
         private static readonly Dictionary<string, ValidationRule> _validationRules = new Dictionary<string, ValidationRule>
         {
-            { "category", new ValidationRule { Type = "string", Required = true } }
+            { "category", new ValidationRule { Type = "string", Required = false } },
+            { "country", new ValidationRule { Type = "string", Required = false, MaxLength = 60 } },
+            { "edition", new ValidationRule { Type = "string", Required = false } },
+            { "language", new ValidationRule { Type = "string", Required = false } },
+            { "sort", new ValidationRule { Type = "string", Required = false } },
+            { "q", new ValidationRule { Type = "string", Required = false, MaxLength = 100 } },
+            { "since", new ValidationRule { Type = "string", Required = false, MaxLength = 30, Format = "date" } },
+            { "limit", new ValidationRule { Type = "integer", Required = false, Min = 1 } }
         };
 
         /// <summary>Format validation patterns</summary>
