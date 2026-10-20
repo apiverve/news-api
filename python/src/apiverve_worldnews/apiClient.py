@@ -1,6 +1,6 @@
 import re
-from typing import Dict, Optional, Any
-from dataclasses import dataclass, List
+from typing import Dict, Optional, Any, List
+from dataclasses import dataclass
 import requests
 
 
@@ -24,7 +24,14 @@ class ValidationError(NewsAPIClientError):
 class NewsAPIClient:
     # Validation rules for parameters (generated from schema)
     VALIDATION_RULES = {
-        "category": {"type": "string", "required": True}
+        "category": {"type": "string", "required": False},
+        "country": {"type": "string", "required": False, "maxLength": 60},
+        "edition": {"type": "string", "required": False},
+        "language": {"type": "string", "required": False},
+        "sort": {"type": "string", "required": False, "default": "top"},
+        "q": {"type": "string", "required": False, "maxLength": 100},
+        "since": {"type": "string", "required": False, "maxLength": 30, "format": "date"},
+        "limit": {"type": "integer", "required": False, "min": 1}
     }
 
     # Format validation patterns
