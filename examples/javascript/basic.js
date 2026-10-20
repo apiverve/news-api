@@ -15,7 +15,12 @@ async function callWorldNewsAPI() {
   try {
     // Query parameters
     const params &#x3D; new URLSearchParams({
-            category: &#x27;technology&#x27;
+            category: &#x27;technology&#x27;,
+            country: &#x27;JP&#x27;,
+            edition: &#x27;GB&#x27;,
+            language: &#x27;es&#x27;,
+            sort: &#x27;top&#x27;,
+            limit: 10
         });
 
     const response = await fetch(`${API_URL}?${params}`, {

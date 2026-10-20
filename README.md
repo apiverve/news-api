@@ -1,13 +1,13 @@
-# [World News API](https://apiverve.com/marketplace/news?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [World News API](https://apiverve.com/marketplace/news?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-News API is a simple tool for scraping news data. It returns the news title, description, and more.
+World News is a global news API that reads about 275 outlet feeds in 29 editions and 6 languages and merges them into stories: one entry per story however many outlets carry it, ranked by that coverage. Filter by 13 topics, by the country a story is about, by the edition it ran in, or by language.
 
 The World News API provides a simple, reliable way to integrate world news functionality into your applications. Built for developers who need production-ready world news capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://apiverve.com/marketplace/news?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/news?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/news?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/news?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -31,7 +31,12 @@ The World News API provides a simple, reliable way to integrate world news funct
 async function callWorldNewsAPI() {
     try {
         const params = new URLSearchParams({
-            category: 'technology'
+            category: 'technology',
+            country: 'JP',
+            edition: 'GB',
+            language: 'es',
+            sort: 'top',
+            limit: 10
         });
 
         const response = await fetch(`https://api.apiverve.com/v1/news?${params}`, {
@@ -54,7 +59,7 @@ callWorldNewsAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/news?category=technology" \
+curl -X GET "https://api.apiverve.com/v1/news?category=technology&country=JP&edition=GB&language=es&sort=top&limit=10" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -161,7 +166,7 @@ go get github.com/apiverve/news-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [World News API](https://apiverve.com/marketplace/news?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [World News API](https://apiverve.com/marketplace/news?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/news](https://docs.apiverve.com/ref/news)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -191,11 +196,124 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the World News API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "date": "2026-10-06",
+    "category": "technology",
+    "edition": null,
+    "languages": [
+      "en"
+    ],
+    "country": null,
+    "sort": "top",
+    "lastUpdated": "2026-10-06T21:25:23.605Z",
+    "articleCount": 3,
+    "articles": [
+      {
+        "category": "technology",
+        "website": "Ars Technica",
+        "title": "Amazon kills Alexa’s ability to control Echo speakers' AUX input",
+        "pubDate": "2026-10-06T17:03:16.000Z",
+        "image": "https://cdn.arstechnica.net/wp-content/uploads/2018/11/71I6oj6ZFBL._SL1000_-1000x648.jpg",
+        "description": "Amazon hasn't made an Echo with a 3.5mm port in six years.",
+        "link": "https://arstechnica.com/gadgets/2026/10/amazon-bricks-alexas-ability-to-control-echo-speakers-aux-input/",
+        "id": "1c4e377fb78ebbb0",
+        "categories": [
+          "technology"
+        ],
+        "countries": [],
+        "edition": "US",
+        "language": "en",
+        "coverage": 2,
+        "sources": [
+          {
+            "website": "The Verge",
+            "title": "Alexa can’t control the aux input on Amazon Echo speakers anymore",
+            "link": "https://www.theverge.com/tech/1006103/amazon-alexa-aux-voice-commands",
+            "pubDate": "2026-10-06T19:03:56.000Z"
+          }
+        ],
+        "sentiment": "neutral",
+        "sentimentScore": -1
+      },
+      {
+        "category": "technology",
+        "website": "TechRadar",
+        "title": "ASOS hacked? Customers receive threatening notification from hackers, here’s what we know",
+        "pubDate": "2026-10-06T09:51:14.000Z",
+        "image": "https://cdn.mos.cms.futurecdn.net/vcsoVeYWsa449Faq6GXYyf-1920-80.jpg",
+        "description": "The ASOS app sent out a threatening notification to thousands of users.",
+        "link": "https://www.techradar.com/pro/security/asos-hacked-customers-receive-threatening-notification-from-hackers-heres-what-we-know",
+        "id": "2f99fc0e8c1c33ac",
+        "categories": [
+          "technology"
+        ],
+        "countries": [],
+        "edition": "GB",
+        "language": "en",
+        "coverage": 2,
+        "sources": [
+          {
+            "website": "BBC News",
+            "title": "Asos confirms hackers sent 'unauthorised' notification to app users",
+            "link": "https://www.bbc.co.uk/news/articles/cj62ylzpr6d3o",
+            "pubDate": "2026-10-06T17:50:19.000Z"
+          }
+        ],
+        "sentiment": "very negative",
+        "sentimentScore": -5
+      },
+      {
+        "category": "technology",
+        "website": "CBC News",
+        "title": "Belgian physicist awarded Nobel Prize for pioneering work tracking neutrino particles at South Pole",
+        "pubDate": "2026-10-06T10:33:19.000Z",
+        "image": "https://i.cbc.ca/ais/817f3f8b-5650-4364-afd6-852d370b00ba,1791288766832/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C25%2C2200%2C1237%29%3B",
+        "description": "Belgian American particle physicist Francis Halzen was announced as the winner of the 2026 Nobel Prize in Physics on Tuesday in Stockholm.",
+        "link": "https://www.cbc.ca/news/world/nobel-award-physics-9.7369209?cmp=rss",
+        "id": "912e072816d90c8e",
+        "categories": [
+          "technology"
+        ],
+        "countries": [
+          "BE",
+          "US",
+          "SE"
+        ],
+        "edition": "CA",
+        "language": "en",
+        "coverage": 2,
+        "sources": [
+          {
+            "website": "Ars Technica",
+            "title": "Neutrino physicist wins 2026 Nobel Physics Prize",
+            "link": "https://arstechnica.com/science/2026/10/neutrino-physicist-wins-2026-nobel-physics-prize/",
+            "pubDate": "2026-10-06T16:53:17.000Z"
+          }
+        ],
+        "sentiment": "very positive",
+        "sentimentScore": 7
+      }
+    ]
+  }
 }
 ```
 
@@ -203,7 +321,7 @@ All responses are JSON with this structure:
 
 ## Support & Community
 
-- 🏠 **API Home**: [World News API](https://apiverve.com/marketplace/news?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [World News API](https://apiverve.com/marketplace/news?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)
