@@ -1,0 +1,16 @@
+name: apiverve_news
+description: "World News is a global news API that reads about 275 outlet feeds in 29 editions and 6 languages and merges them into stories: one entry per story however many outlets carry it, ranked by that coverage. Filter by 13 topics, by the country a story is about, by the edition it ran in, or by language."
+version: 1.2.5
+homepage: https://apiverve.com/marketplace/news?utm_source=dart&utm_medium=referral&utm_content=homepage
+repository: https://github.com/apiverve/news-api/tree/main/dart
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  http: ^1.1.0
+  http_parser: ^4.0.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
