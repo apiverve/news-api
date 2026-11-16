@@ -19,7 +19,7 @@ module APIVerve
       DEFAULT_TIMEOUT = 30
 
       # Validation rules for parameters
-      VALIDATION_RULES = { 'category' => { type: 'string', required: false }, 'country' => { type: 'string', required: false, max_length: 60 }, 'edition' => { type: 'string', required: false }, 'language' => { type: 'string', required: false }, 'sort' => { type: 'string', required: false }, 'q' => { type: 'string', required: false, max_length: 100 }, 'since' => { type: 'string', required: false, max_length: 30, format: 'date' }, 'limit' => { type: 'integer', required: false, min: 1 } }
+      VALIDATION_RULES = { 'category' => { type: 'string', required: false }, 'country' => { type: 'string', required: false, max_length: 60 }, 'edition' => { type: 'string', required: false }, 'language' => { type: 'string', required: false }, 'sort' => { type: 'string', required: false }, 'q' => { type: 'string', required: false, max_length: 100 }, 'since' => { type: 'string', required: false, max_length: 30, format: 'datetime' }, 'limit' => { type: 'integer', required: false, min: 1 } }
 
       # Format validation patterns
       FORMAT_PATTERNS = {
