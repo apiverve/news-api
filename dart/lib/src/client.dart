@@ -55,7 +55,7 @@ final _formatPatterns = {
 /// * [language] - Only stories in this language. Defaults to English, or with edition to the languages that edition's press writes in. Stories are never translated.
 /// * [sort] - top ranks stories by how many outlets carry them, favouring the last 12 hours; latest is newest first.
 /// * [q] - Only stories whose headlines or summaries contain every word given, in any case. [maxLength: 100]
-/// * [since] - Only stories published at or after this date or date-time (ISO 8601), for example 2026-10-01 or 2026-10-01T14:00:00Z. [maxLength: 30, format: date]
+/// * [since] - Only stories published at or after this date or date-time (ISO 8601), for example 2026-10-01 or 2026-10-01T14:00:00Z. [maxLength: 30, format: datetime]
 /// * [limit] - Maximum number of stories to return: up to 10 on the free plan, 50 on paid plans. [min: 1]
 class NewsClient {
   final String apiKey;
@@ -70,7 +70,7 @@ class NewsClient {
     'language': ValidationRule(type: 'string', required: false),
     'sort': ValidationRule(type: 'string', required: false),
     'q': ValidationRule(type: 'string', required: false, maxLength: 100),
-    'since': ValidationRule(type: 'string', required: false, maxLength: 30, format: 'date'),
+    'since': ValidationRule(type: 'string', required: false, maxLength: 30, format: 'datetime'),
     'limit': ValidationRule(type: 'integer', required: false, min: 1),
   };
 
