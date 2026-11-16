@@ -40,7 +40,7 @@ class Client
         'language' => ['type' => 'string', 'required' => false],
         'sort' => ['type' => 'string', 'required' => false],
         'q' => ['type' => 'string', 'required' => false, 'maxLength' => 100],
-        'since' => ['type' => 'string', 'required' => false, 'maxLength' => 30, 'format' => 'date'],
+        'since' => ['type' => 'string', 'required' => false, 'maxLength' => 30, 'format' => 'datetime'],
         'limit' => ['type' => 'integer', 'required' => false, 'min' => 1]
     ];
 
