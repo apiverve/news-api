@@ -30,7 +30,7 @@ class NewsAPIClient:
         "language": {"type": "string", "required": False},
         "sort": {"type": "string", "required": False, "default": "top"},
         "q": {"type": "string", "required": False, "maxLength": 100},
-        "since": {"type": "string", "required": False, "maxLength": 30, "format": "date"},
+        "since": {"type": "string", "required": False, "maxLength": 30, "format": "datetime"},
         "limit": {"type": "integer", "required": False, "min": 1}
     }
 
