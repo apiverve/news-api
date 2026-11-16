@@ -73,7 +73,7 @@ namespace APIVerve.API.WorldNews
             { "language", new ValidationRule { Type = "string", Required = false } },
             { "sort", new ValidationRule { Type = "string", Required = false } },
             { "q", new ValidationRule { Type = "string", Required = false, MaxLength = 100 } },
-            { "since", new ValidationRule { Type = "string", Required = false, MaxLength = 30, Format = "date" } },
+            { "since", new ValidationRule { Type = "string", Required = false, MaxLength = 30, Format = "datetime" } },
             { "limit", new ValidationRule { Type = "integer", Required = false, Min = 1 } }
         };
 
